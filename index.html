@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARGUN Pharma Compass | Tanzania Entry Matrix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1F497D;
+            --slate-gray: #DCE6F1;
+            --dark-charcoal: #2C3E50;
+            --border-muted: #A6A6A6;
+            --accent-green: #27AE60;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: #F8FAFC; color: var(--dark-charcoal); line-height: 1.5; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: #FFFFFF; border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); overflow: hidden; }
+        header { background-color: var(--primary-navy); padding: 25px; text-align: center; color: #FFFFFF; border-bottom: 4px solid #16365C; }
+        header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+        .control-bar { background-color: #F1F5F9; padding: 20px; border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+        .control-label { font-weight: 600; font-size: 0.95rem; color: var(--dark-charcoal); }
+        select { padding: 10px 16px; width: 320px; font-size: 0.95rem; font-weight: 600; background: #FFFFFF; border: 2px solid var(--border-muted); border-radius: 6px; cursor: pointer; color: var(--primary-navy); }
+        .dashboard-content { padding: 30px; position: relative; }
+        .block-section { margin-bottom: 35px; }
+        .block-header { background-color: var(--primary-navy); color: #FFFFFF; padding: 10px 15px; font-size: 0.95rem; font-weight: 600; border-radius: 4px; margin-bottom: 20px; text-transform: uppercase; }
+        .verdict-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 10px; }
+        .data-row { display: flex; padding: 12px 15px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; align-items: center; }
+        .data-label { width: 300px; font-weight: 500; font-size: 0.95rem; color: #64748B; }
+        .data-value { font-weight: 700; font-size: 1.1rem; color: var(--primary-navy); }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
+        th, td { padding: 14px 16px; border: 1px solid var(--border-muted); text-align: left; }
+        th { background-color: var(--slate-gray); font-weight: 600; color: var(--primary-navy); }
+        td { background-color: #FFFFFF; }
+        .gated-blur { filter: blur(5px); pointer-events: none; user-select: none; }
+        .gate-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.7); display: flex; align-items: center; justify-content: center; z-index: 10; padding: 20px; }
+        .gate-card { background: #FFFFFF; border: 1px solid #E2E8F0; padding: 35px; border-radius: 8px; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); max-width: 480px; width: 100%; text-align: center; }
+        .gate-card h2 { font-size: 1.3rem; margin-bottom: 12px; color: var(--primary-navy); font-weight: 700; }
+        .gate-card p { font-size: 0.9rem; color: #64748B; margin-bottom: 25px; }
+        .form-group { text-align: left; margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--dark-charcoal); }
+        .form-group input { width: 100%; padding: 10px 14px; border: 1px solid var(--border-muted); border-radius: 6px; font-size: 0.95rem; }
+        .action-btn { width: 100%; padding: 12px; background: var(--primary-navy); color: #FFFFFF; border: none; border-radius: 6px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+        .action-btn:hover { background: #16365C; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Tanzania Pharma Sector Entry Disruption Interactive Toolkit</h1>
+    </header>
+
+    <div class="control-bar">
+        <div class="control-label">Select Target Molecule:</div>
+        <select id="moleculeSelector" onchange="handleQueryChange()">
+            <option value="Al Hydroxide + Mg Trisilicate">Al Hydroxide + Mg Trisilicate</option>
+            <option value="Albendazole">Albendazole</option>
+            <option value="Amlodipine Besylate">Amlodipine Besylate</option>
+            <option value="Amoxicillin + Clavulanate">Amoxicillin + Clavulanate</option>
+            <option value="Amoxycillin">Amoxycillin</option>
+            <option value="Ampicillin + Cloxacillin">Ampicillin + Cloxacillin</option>
+            <option value="Artemether + Lumefantrine">Artemether + Lumefantrine</option>
+            <option value="Atorvastatin Calcium">Atorvastatin Calcium</option>
+            <option value="Azithromycin" selected>Azithromycin</option>
+            <option value="Cefelexin">Cefelexin</option>
+            <option value="Ceftriaxone Injection">Ceftriaxone Injection</option>
+            <option value="Ciprofloxacin HCl">Ciprofloxacin HCl</option>
+            <option value="Diclofenac Sodium">Diclofenac Sodium</option>
+            <option value="Gliclazide / Glibenclamide">Gliclazide / Glibenclamide</option>
+            <option value="Ibuprofen">Ibuprofen</option>
+            <option value="Losartan Potassium + HCTZ">Losartan Potassium + HCTZ</option>
+            <option value="Metformin Hydrochloride">Metformin Hydrochloride</option>
+            <option value="Metronidazole">Metronidazole</option>
+            <option value="Omeprazole">Omeprazole</option>
+            <option value="Paracetamol">Paracetamol</option>
+        </select>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="gate-overlay" id="leadGate">
+            <div class="gate-card">
+                <h2>Unlock Institutional Insights</h2>
+                <p>Gain free access to comprehensive TMDA compliance calculations, local manufacturing thresholds, and index evaluations.</p>
+                
+                <form action="https://formspree.io/f/mykvzwdbl" method="POST" id="gateForm" onsubmit="submitLeadForm(event)">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" id="leadName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Corporate Email</label>
+                        <input type="email" name="email" id="leadEmail" required placeholder="john@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" name="company" id="leadCompany" required placeholder="Pharmaceuticals Ltd.">
+                    </div>
+                    <div class="form-group">
+                        <label>Executive Title</label>
+                        <input type="text" name="title" id="leadTitle" required placeholder="Director of Strategy / CEO">
+                    </div>
+                    <button type="submit" class="action-btn">Access Toolkit Dashboard</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="blurWrapper" class="gated-blur">
+            <div class="block-section">
+                <div class="block-header">Block A: The Go-To-Market Verdict</div>
+                <div class="verdict-grid">
+                    <div class="data-row">
+                        <div class="data-label">Overall Opportunity Score (Max 5.0):</div>
+                        <div class="data-value" id="oppScore">3.8</div>
+                    </div>
+                    <div class="data-row">
+                        <div class="data-label">Investment Tier Verdict:</div>
+                        <div class="data-value" id="tierVerdict" style="font-size: 1rem;">MODERATE POTENTIAL - Retail Niche Play</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-section">
+                <div class="block-header">Block B: TMDA Regulatory Compass Cost Analysis</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>REGULATORY COMPONENT</th>
+                            <th>IMPORT ROUTE</th>
+                            <th>LOCAL MANUFACTURING ROUTE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 500;">Initial Product Registration Fee</td>
+                            <td id="importRegCost" style="font-weight: 600; color: #C0392B;">USD 4,000</td>
+                            <td style="color: var(--accent-green); font-weight: 600;">TZS 1,000,000 (~$380)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500;">Mandatory Facility Quality Audit Fee</td>
+                            <td style="font-weight: 600; color: #C0392B;">USD 6,000 per Site</td>
+                            <td style="color: var(--accent-green); font-weight: 600;">USD 0 (Waived for Local Plants)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500;">Annual Product Retention Cost</td>
+                            <td id="importRetCost" style="font-weight: 600; color: #C0392B;">USD 600 / Year</td>
+                            <td style="color: var(--accent-green); font-weight: 600;">Statutory Domestic Rate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Synced database mapping from your Final alphabetized spreadsheet calculations
+    const clientDataMatrix = {
+        "Al Hydroxide + Mg Trisilicate": { score: 3.0, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 1 },
+        "Albendazole": { score: 1.9, verdict: "HIGH SATURATION RISK - Avoid Entry", strengths: 1 },
+        "Amlodipine Besylate": { score: 3.6, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 3 },
+        "Amoxicillin + Clavulanate": { score: 3.9, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 2 },
+        "Amoxycillin": { score: 3.7, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 1 },
+        "Ampicillin + Cloxacillin": { score: 3.6, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 1 },
+        "Artemether + Lumefantrine": { score: 3.8, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 2 },
+        "Atorvastatin Calcium": { score: 2.5, verdict: "HIGH SATURATION RISK - Avoid Entry", strengths: 2 },
+        "Azithromycin": { score: 3.8, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 2 },
+        "Cefelexin": { score: 3.3, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 2 },
+        "Ceftriaxone Injection": { score: 3.8, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 1 },
+        "Ciprofloxacin HCl": { score: 3.8, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 1 },
+        "Diclofenac Sodium": { score: 2.9, verdict: "HIGH SATURATION RISK - Avoid Entry", strengths: 1 },
+        "Gliclazide / Glibenclamide": { score: 2.3, verdict: "HIGH SATURATION RISK - Avoid Entry", strengths: 2 },
+        "Ibuprofen": { score: 2.6, verdict: "HIGH SATURATION RISK - Avoid Entry", strengths: 1 },
+        "Losartan Potassium + HCTZ": { score: 3.6, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 2 },
+        "Metformin Hydrochloride": { score: 2.2, verdict: "HIGH SATURATION RISK - Avoid Entry", strengths: 1 },
+        "Metronidazole": { score: 2.4, verdict: "HIGH SATURATION RISK - Avoid Entry", strengths: 1 },
+        "Omeprazole": { score: 3.6, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 2 },
+        "Paracetamol": { score: 4.2, verdict: "HIGH DISRUPTION POTENTIAL - Local Plant Feasible", strengths: 1 }
+    };
+
+    function submitLeadForm(e) {
+        e.preventDefault();
+        const form = document.getElementById('gateForm');
+        
+        // Background-post lead fields directly to your target notification engine
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        // Lift the curtain immediately for the executive user
+        document.getElementById('leadGate').classList.add('hidden');
+        document.getElementById('blurWrapper').classList.remove('gated-blur');
+        handleQueryChange();
+    }
+
+    function handleQueryChange() {
+        const selectedMolecule = document.getElementById('moleculeSelector').value;
+        const record = clientDataMatrix[selectedMolecule];
+        if (!record) return;
+
+        document.getElementById('oppScore').innerText = record.score.toFixed(1);
+        document.getElementById('tierVerdict').innerText = record.verdict;
+
+        const regCost = 2000 * record.strengths;
+        const retCost = 300 * record.strengths;
+        document.getElementById('importRegCost').innerText = `USD ${regCost.toLocaleString()}`;
+        document.getElementById('importRetCost').innerText = `USD ${retCost.toLocaleString()} / Year`;
+    }
+</script>
+</body>
+</html>
