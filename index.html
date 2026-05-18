@@ -84,7 +84,7 @@
                 <h2>Unlock Institutional Insights</h2>
                 <p>Gain free access to comprehensive TMDA compliance calculations, local manufacturing thresholds, and index evaluations.</p>
                 
-                <form action="https://formspree.io/f/mykvzwdbl" method="POST" id="gateForm" onsubmit="submitLeadForm(event)">
+                <form action="https://formspree.io/f/mbdblyae" method="POST" id="gateForm">
                     <div class="form-group">
                         <label>Full Name</label>
                         <input type="text" name="name" id="leadName" required placeholder="John Doe">
@@ -179,22 +179,19 @@
         "Paracetamol": { score: 4.2, verdict: "HIGH DISRUPTION POTENTIAL - Local Plant Feasible", strengths: 1 }
     };
 
-    function submitLeadForm(e) {
-        e.preventDefault();
-        const form = document.getElementById('gateForm');
-        
-        // Background-post lead fields directly to your target notification engine
-        fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-        });
+    // Auto-check on page load if user has logged in previously
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem('hargun_compass_auth') === 'true') {
+            document.getElementById('leadGate').classList.add('hidden');
+            document.getElementById('blurWrapper').classList.remove('gated-blur');
+            handleQueryChange();
+        }
+    });
 
-        // Lift the curtain immediately for the executive user
-        document.getElementById('leadGate').classList.add('hidden');
-        document.getElementById('blurWrapper').classList.remove('gated-blur');
-        handleQueryChange();
-    }
+    // Handle form submit interception to log validation locally before routing to the cloud
+    document.getElementById('gateForm').addEventListener('submit', function() {
+        localStorage.setItem('hargun_compass_auth', 'true');
+    });
 
     function handleQueryChange() {
         const selectedMolecule = document.getElementById('moleculeSelector').value;
