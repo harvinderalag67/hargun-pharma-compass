@@ -84,7 +84,7 @@
                 <h2>Unlock Institutional Insights</h2>
                 <p>Gain free access to comprehensive TMDA compliance calculations, local manufacturing thresholds, and index evaluations.</p>
                 
-                <form action="https://formspree.io/f/mbdblyae" method="POST" id="gateForm">
+                <form action="https://formspree.io/f/mbdblyae" method="POST" id="gateForm" onsubmit="submitLeadForm(event)">
                     <div class="form-group">
                         <label>Full Name</label>
                         <input type="text" name="name" id="leadName" required placeholder="John Doe">
@@ -155,7 +155,7 @@
 </div>
 
 <script>
-    // Synced database mapping from your Final alphabetized spreadsheet calculations
+    // Master data matrix mapped strictly A-Z to your verified figures
     const clientDataMatrix = {
         "Al Hydroxide + Mg Trisilicate": { score: 3.0, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 1 },
         "Albendazole": { score: 1.9, verdict: "HIGH SATURATION RISK - Avoid Entry", strengths: 1 },
@@ -179,19 +179,52 @@
         "Paracetamol": { score: 4.2, verdict: "HIGH DISRUPTION POTENTIAL - Local Plant Feasible", strengths: 1 }
     };
 
-    // Auto-check on page load if user has logged in previously
+    // Auto-check on page boot up if browser contains valid historical login markers
     window.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem('hargun_compass_auth') === 'true') {
-            document.getElementById('leadGate').classList.add('hidden');
-            document.getElementById('blurWrapper').classList.remove('gated-blur');
-            handleQueryChange();
+            unlockDashboard();
         }
     });
 
-    // Handle form submit interception to log validation locally before routing to the cloud
-    document.getElementById('gateForm').addEventListener('submit', function() {
-        localStorage.setItem('hargun_compass_auth', 'true');
-    });
+    function unlockDashboard() {
+        document.getElementById('leadGate').classList.add('hidden');
+        document.getElementById('blurWrapper').classList.remove('gated-blur');
+        handleQueryChange();
+    }
+
+    // Intercept form submit to send data in background and prevent broken page redirects
+    async function submitLeadForm(event) {
+        event.preventDefault();
+        const form = document.getElementById('gateForm');
+        const submitButton = form.querySelector('.action-btn');
+        
+        submitButton.innerText = "Validating Credentials...";
+        submitButton.disabled = true;
+
+        const data = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            
+            if (response.ok) {
+                // Save validation credentials securely on the local device browser
+                localStorage.setItem('hargun_compass_auth', 'true');
+                unlockDashboard();
+            } else {
+                alert("Submission failed. Please verify that your email format is completely correct.");
+                submitButton.innerText = "Access Toolkit Dashboard";
+                submitButton.disabled = false;
+            }
+        } catch (error) {
+            // Backup validation handler if third party scripts time out
+            localStorage.setItem('hargun_compass_auth', 'true');
+            unlockDashboard();
+        }
+    }
 
     function handleQueryChange() {
         const selectedMolecule = document.getElementById('moleculeSelector').value;
