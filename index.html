@@ -12,36 +12,67 @@
             --dark-charcoal: #2C3E50;
             --border-muted: #A6A6A6;
             --accent-green: #27AE60;
+            --accent-gold: #D4AF37;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-        body { background-color: #F8FAFC; color: var(--dark-charcoal); line-height: 1.5; padding: 40px 20px; }
-        .container { max-width: 1000px; margin: 0 auto; background: #FFFFFF; border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); overflow: hidden; }
-        header { background-color: var(--primary-navy); padding: 25px; text-align: center; color: #FFFFFF; border-bottom: 4px solid #16365C; }
-        header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
-        .control-bar { background-color: #F1F5F9; padding: 20px; border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+        body { background-color: #F8FAFC; color: var(--dark-charcoal); line-height: 1.6; padding: 40px 20px; }
+        .container { max-width: 1050px; margin: 0 auto; background: #FFFFFF; border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); overflow: hidden; }
+        
+        /* Brand Identity Header Layout */
+        header { background-color: var(--primary-navy); padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; border-bottom: 4px solid #16365C; }
+        
+        .brand-block { display: flex; align-items: center; gap: 12px; }
+        
+        /* Dynamic Vector-Geometric Logo Construct */
+        .logo-emblem { width: 38px; height: 38px; border-radius: 50%; border: 3px solid var(--slate-gray); position: relative; background: var(--primary-navy); display: flex; align-items: center; justify-content: center; }
+        .logo-emblem::before { content: ''; position: absolute; width: 4px; height: 22px; background: var(--accent-gold); border-radius: 2px; transform: rotate(45deg); }
+        .logo-emblem::after { content: ''; position: absolute; width: 14px; height: 14px; border: 2px dashed rgba(255,255,255,0.4); border-radius: 50%; }
+        
+        .brand-text { font-size: 1.05rem; font-weight: 700; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; }
+        header h1 { font-size: 1.25rem; font-weight: 700; color: #FFFFFF; letter-spacing: 0.5px; text-transform: uppercase; }
+
+        /* Navigation Control Component */
+        .control-bar { background-color: #F1F5F9; padding: 20px 30px; border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
         .control-label { font-weight: 600; font-size: 0.95rem; color: var(--dark-charcoal); }
-        select { padding: 10px 16px; width: 320px; font-size: 0.95rem; font-weight: 600; background: #FFFFFF; border: 2px solid var(--border-muted); border-radius: 6px; cursor: pointer; color: var(--primary-navy); }
-        .dashboard-content { padding: 30px; position: relative; }
+        select { padding: 10px 16px; width: 340px; font-size: 0.95rem; font-weight: 600; background: #FFFFFF; border: 2px solid var(--border-muted); border-radius: 6px; cursor: pointer; color: var(--primary-navy); }
+
+        /* Content Blocks & Interface Windows */
+        .dashboard-content { padding: 35px; position: relative; }
         .block-section { margin-bottom: 35px; }
-        .block-header { background-color: var(--primary-navy); color: #FFFFFF; padding: 10px 15px; font-size: 0.95rem; font-weight: 600; border-radius: 4px; margin-bottom: 20px; text-transform: uppercase; }
+        .block-header { background-color: var(--primary-navy); color: #FFFFFF; padding: 12px 18px; font-size: 0.95rem; font-weight: 600; border-radius: 4px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Calculation Readout Matrices */
         .verdict-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 10px; }
-        .data-row { display: flex; padding: 12px 15px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; align-items: center; }
-        .data-label { width: 300px; font-weight: 500; font-size: 0.95rem; color: #64748B; }
+        .data-row { display: flex; padding: 14px 18px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; align-items: center; }
+        .data-label { width: 320px; font-weight: 500; font-size: 0.95rem; color: #64748B; }
         .data-value { font-weight: 700; font-size: 1.1rem; color: var(--primary-navy); }
+
+        /* Regulatory Pricing Sheet Overlays */
         table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
-        th, td { padding: 14px 16px; border: 1px solid var(--border-muted); text-align: left; }
+        th, td { padding: 14px 18px; border: 1px solid var(--border-muted); text-align: left; }
         th { background-color: var(--slate-gray); font-weight: 600; color: var(--primary-navy); }
         td { background-color: #FFFFFF; }
+
+        /* Premium Explanatory Paragraph Context Boxes */
+        .narrative-box { background: #F8FAFC; border-left: 4px solid var(--primary-navy); padding: 20px; border-radius: 0 6px 6px 0; margin-bottom: 20px; text-align: justify; font-size: 0.95rem; }
+        .narrative-box strong { color: var(--primary-navy); display: inline-block; margin-bottom: 4px; }
+        .methodology-list { margin-top: 10px; padding-left: 20px; text-align: justify; }
+        .methodology-list li { margin-bottom: 12px; font-size: 0.95rem; }
+
+        /* Security Gating Interface Overlays */
         .gated-blur { filter: blur(5px); pointer-events: none; user-select: none; }
-        .gate-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.7); display: flex; align-items: center; justify-content: center; z-index: 10; padding: 20px; }
-        .gate-card { background: #FFFFFF; border: 1px solid #E2E8F0; padding: 35px; border-radius: 8px; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); max-width: 480px; width: 100%; text-align: center; }
-        .gate-card h2 { font-size: 1.3rem; margin-bottom: 12px; color: var(--primary-navy); font-weight: 700; }
-        .gate-card p { font-size: 0.9rem; color: #64748B; margin-bottom: 25px; }
+        .gate-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); display: flex; align-items: flex-start; justify-content: center; z-index: 10; padding-top: 60px; }
+        .gate-card { background: #FFFFFF; border: 1px solid #E2E8F0; padding: 40px; border-radius: 8px; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15); max-width: 520px; width: 100%; text-align: center; }
+        .gate-card h2 { font-size: 1.4rem; margin-bottom: 12px; color: var(--primary-navy); font-weight: 700; }
+        .gate-card p { font-size: 0.9rem; color: #64748B; margin-bottom: 25px; line-height: 1.5; text-align: justify; }
+        
         .form-group { text-align: left; margin-bottom: 16px; }
         .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--dark-charcoal); }
-        .form-group input { width: 100%; padding: 10px 14px; border: 1px solid var(--border-muted); border-radius: 6px; font-size: 0.95rem; }
-        .action-btn { width: 100%; padding: 12px; background: var(--primary-navy); color: #FFFFFF; border: none; border-radius: 6px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+        .form-group input { width: 100%; padding: 11px 14px; border: 1px solid var(--border-muted); border-radius: 6px; font-size: 0.95rem; }
+        .action-btn { width: 100%; padding: 14px; background: var(--primary-navy); color: #FFFFFF; border: none; border-radius: 6px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
         .action-btn:hover { background: #16365C; }
+
         .hidden { display: none !important; }
     </style>
 </head>
@@ -49,7 +80,11 @@
 
 <div class="container">
     <header>
-        <h1>Tanzania Pharma Sector Entry Disruption Interactive Toolkit</h1>
+        <div class="brand-block">
+            <div class="logo-emblem"></div>
+            <div class="brand-text">Hargun Pharma Compass</div>
+        </div>
+        <h1>Tanzania Pharma Sector Entry Toolkit</h1>
     </header>
 
     <div class="control-bar">
@@ -81,8 +116,8 @@
     <div class="dashboard-content">
         <div class="gate-overlay" id="leadGate">
             <div class="gate-card">
-                <h2>Unlock Institutional Insights</h2>
-                <p>Gain free access to comprehensive TMDA compliance calculations, local manufacturing thresholds, and index evaluations.</p>
+                <h2>Unlock Tanzania Strategic Entry Matrix</h2>
+                <p>Unlock instant, data-backed visibility into East Africa's most tightly regulated pharmaceutical landscape. Gain secure access to proprietary TMDA compliance cost structures, local manufacturing protective thresholds, and channel velocity metrics calibrated for executive-level market entry.</p>
                 
                 <form action="https://formspree.io/f/mbdblyae" method="POST" id="gateForm" onsubmit="submitLeadForm(event)">
                     <div class="form-group">
@@ -150,12 +185,45 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="block-section">
+                <div class="block-header">Understanding Your Investment Tier Verdicts</div>
+                
+                <div class="narrative-box">
+                    <strong>HIGH DISRUPTION POTENTIAL – Local Plant Feasible:</strong><br>
+                    Molecules in this tier represent the highest-priority targets for local manufacturing investments. These products are characterized by immense public procurement volumes through the Medical Stores Department (MSD) or severe logistical freight weight. Under Tanzanian policy, local plants enjoy a 15% domestic price preference in public tenders, while completely bypassing the steep $6,000 USD foreign facility audit penalties and compounding per-strength registration friction. Local production here functions as a highly defensible, policy-sheltered economic moat.
+                </div>
+                
+                <div class="narrative-box">
+                    <strong>MODERATE POTENTIAL – Retail Niche Play:</strong><br>
+                    These molecules face intense commercial volume saturation or aggressive generic competition in institutional channels, making large-scale tender reliance high risk. However, they command a strong retail price premium in private commercial pharmacies. The strategic entry blueprint here bypasses public contracts entirely in favour of a targeted, high-margin brand-building distribution model focused on private hospital networks and retail drug store chains where cash-and-carry velocity is high.
+                </div>
+                
+                <div class="narrative-box">
+                    <strong>HIGH SATURATION RISK – Avoid Entry:</strong><br>
+                    Molecules landing in this tier exhibit low market demand ceilings, minimal retail price elasticity, or hyper-fragmented market share dominated by low-cost international generic manufacturers. Given TMDA's steep up-front regulatory entry costs ($2,000 per strength) and ongoing annual retention overheads, launching new brands in this segment offers a very poor return on capital. Investors should avoid entering these product lines except as non-core, portfolio-completing additions.
+                </div>
+            </div>
+
+            <div class="block-section">
+                <div class="block-header">Methodology and Rating Framework Parameters</div>
+                <div class="narrative-box">
+                    The Overall Opportunity Score is determined via a proprietary, weighted multi-variant matrix that evaluates each molecule across four core operational pillars on a 1.0 to 5.0 scale:
+                    <ul class="methodology-list">
+                        <li><strong>1. Institutional Tender Volume ($T$ — 30% Weight):</strong> Evaluates the total scale of demand moving through state procurement (MSD), rewarding products that offer sustainable baseline volume for a manufacturing footprint.</li>
+                        <li><strong>2. Private Retail Price Premium ($M_{\Delta}$ — 30% Weight):</strong> Measures price resilience and margin stability within private commercial pharmacies, identifying opportunities for high-margin brand differentiation.</li>
+                        <li><strong>3. TMDA Regulatory Barrier ($R_{\text{fees}}$ — 20% Weight):</strong> Dynamically calculates the up-front capital friction imposed on foreign entries. The calculation reflects how the TMDA framework creates a significantly higher financial entry threshold for imported multi-strength portfolios, effectively enhancing the protective shield for domestic applications.</li>
+                        <li><strong>4. Channel Flow Velocity ($C_{\text{flow}}$ — 20% Weight):</strong> Analyzes the distribution pipeline mechanics, balancing cash-flow timing, payment-cycle risks, and the strategic viability of navigating the Tanzanian public vs. private healthcare ecosystem.</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
 
 <script>
-    // Master data matrix mapped strictly A-Z to your verified figures
+    // System database matrix mapped from your final verified dataset files
     const clientDataMatrix = {
         "Al Hydroxide + Mg Trisilicate": { score: 3.0, verdict: "MODERATE POTENTIAL - Retail Niche Play", strengths: 1 },
         "Albendazole": { score: 1.9, verdict: "HIGH SATURATION RISK - Avoid Entry", strengths: 1 },
@@ -179,50 +247,44 @@
         "Paracetamol": { score: 4.2, verdict: "HIGH DISRUPTION POTENTIAL - Local Plant Feasible", strengths: 1 }
     };
 
-    // Auto-check on page boot up if browser contains valid historical login markers
     window.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem('hargun_compass_auth') === 'true') {
-            unlockDashboard();
+            revealInterface();
         }
     });
 
-    function unlockDashboard() {
+    function revealInterface() {
         document.getElementById('leadGate').classList.add('hidden');
         document.getElementById('blurWrapper').classList.remove('gated-blur');
         handleQueryChange();
     }
 
-    // Intercept form submit to send data in background and prevent broken page redirects
     async function submitLeadForm(event) {
         event.preventDefault();
         const form = document.getElementById('gateForm');
         const submitButton = form.querySelector('.action-btn');
         
-        submitButton.innerText = "Validating Credentials...";
+        submitButton.innerText = "Processing Access Authorization...";
         submitButton.disabled = true;
 
-        const data = new FormData(form);
-        
         try {
             const response = await fetch(form.action, {
                 method: form.method,
-                body: data,
+                body: new FormData(form),
                 headers: { 'Accept': 'application/json' }
             });
             
             if (response.ok) {
-                // Save validation credentials securely on the local device browser
                 localStorage.setItem('hargun_compass_auth', 'true');
-                unlockDashboard();
+                revealInterface();
             } else {
-                alert("Submission failed. Please verify that your email format is completely correct.");
+                alert("Authorization failed. Please ensure your parameters are entered correctly.");
                 submitButton.innerText = "Access Toolkit Dashboard";
                 submitButton.disabled = false;
             }
         } catch (error) {
-            // Backup validation handler if third party scripts time out
             localStorage.setItem('hargun_compass_auth', 'true');
-            unlockDashboard();
+            revealInterface();
         }
     }
 
