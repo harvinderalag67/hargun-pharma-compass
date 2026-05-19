@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HARGUN Pharma Compass | Tanzania Entry Matrix</title>
+    <meta name="viewport" content="width=device-width, initial-color=1.0">
+    
+    <title>HARGUN Pharma Compass | Tanzania Pharma Sector Entry Toolkit</title>
+    <meta name="description" content="An interactive database matrix for evaluating pharmaceutical market entry, TMDA regulatory compliance cost structures, and manufacturing feasibility thresholds in Tanzania.">
+    <meta name="keywords" content="Tanzania pharmaceutical market, TMDA registration fees, Hargun Pharma Compass, pharma market entry East Africa, MSD tender volumes, local pharma manufacturing Tanzania">
+    <meta name="author" content="Hargun Pharma Compass">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Tanzania Pharma Sector Entry Toolkit | HARGUN Pharma Compass">
+    <meta property="og:description" content="Data-driven visibility into East Africa's regulated healthcare landscape. Access strategic opportunity models for 20 core molecules.">
+    <meta property="og:type" content="website">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -21,10 +31,9 @@
         
         /* Brand Identity Header Layout */
         header { background-color: var(--primary-navy); padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; border-bottom: 4px solid #16365C; }
-        
         .brand-block { display: flex; align-items: center; gap: 12px; }
         
-        /* Dynamic Vector-Geometric Logo Construct */
+        /* Vector-Geometric Logo Construct */
         .logo-emblem { width: 38px; height: 38px; border-radius: 50%; border: 3px solid var(--slate-gray); position: relative; background: var(--primary-navy); display: flex; align-items: center; justify-content: center; }
         .logo-emblem::before { content: ''; position: absolute; width: 4px; height: 22px; background: var(--accent-gold); border-radius: 2px; transform: rotate(45deg); }
         .logo-emblem::after { content: ''; position: absolute; width: 14px; height: 14px; border: 2px dashed rgba(255,255,255,0.4); border-radius: 50%; }
@@ -54,18 +63,24 @@
         th { background-color: var(--slate-gray); font-weight: 600; color: var(--primary-navy); }
         td { background-color: #FFFFFF; }
 
-        /* Premium Explanatory Paragraph Context Boxes */
+        /* Justified Premium Explanatory Paragraph Context Boxes */
         .narrative-box { background: #F8FAFC; border-left: 4px solid var(--primary-navy); padding: 20px; border-radius: 0 6px 6px 0; margin-bottom: 20px; text-align: justify; font-size: 0.95rem; }
         .narrative-box strong { color: var(--primary-navy); display: inline-block; margin-bottom: 4px; }
         .methodology-list { margin-top: 10px; padding-left: 20px; text-align: justify; }
         .methodology-list li { margin-bottom: 12px; font-size: 0.95rem; }
+
+        /* Direct Action Call-to-Action Mailer Block */
+        .cta-section { background: #FFFDF5; border: 2px dashed var(--accent-gold); padding: 30px; border-radius: 8px; text-align: justify; margin-top: 40px; }
+        .cta-btn-container { text-align: center; margin-top: 25px; }
+        .cta-email-btn { display: inline-block; padding: 14px 28px; background-color: var(--primary-navy); color: #FFFFFF; font-weight: 600; text-decoration: none; border-radius: 6px; box-shadow: 0 4px 6px -1px rgba(31, 73, 125, 0.2); transition: background-color 0.2s, transform 0.2s; }
+        .cta-email-btn:hover { background-color: #16365C; transform: translateY(-1px); }
 
         /* Security Gating Interface Overlays */
         .gated-blur { filter: blur(5px); pointer-events: none; user-select: none; }
         .gate-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); display: flex; align-items: flex-start; justify-content: center; z-index: 10; padding-top: 60px; }
         .gate-card { background: #FFFFFF; border: 1px solid #E2E8F0; padding: 40px; border-radius: 8px; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15); max-width: 520px; width: 100%; text-align: center; }
         .gate-card h2 { font-size: 1.4rem; margin-bottom: 12px; color: var(--primary-navy); font-weight: 700; }
-        .gate-card p { font-size: 0.9rem; color: #64748B; margin-bottom: 25px; line-height: 1.5; text-align: justify; }
+        .gate-card p { font-size: 0.9rem; color: #64748B; margin-bottom: 25px; line-height: 1.6; text-align: justify; }
         
         .form-group { text-align: left; margin-bottom: 16px; }
         .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--dark-charcoal); }
@@ -210,11 +225,21 @@
                 <div class="narrative-box">
                     The Overall Opportunity Score is determined via a proprietary, weighted multi-variant matrix that evaluates each molecule across four core operational pillars on a 1.0 to 5.0 scale:
                     <ul class="methodology-list">
-                        <li><strong>1. Institutional Tender Volume ($T$ — 30% Weight):</strong> Evaluates the total scale of demand moving through state procurement (MSD), rewarding products that offer sustainable baseline volume for a manufacturing footprint.</li>
-                        <li><strong>2. Private Retail Price Premium ($M_{\Delta}$ — 30% Weight):</strong> Measures price resilience and margin stability within private commercial pharmacies, identifying opportunities for high-margin brand differentiation.</li>
-                        <li><strong>3. TMDA Regulatory Barrier ($R_{\text{fees}}$ — 20% Weight):</strong> Dynamically calculates the up-front capital friction imposed on foreign entries. The calculation reflects how the TMDA framework creates a significantly higher financial entry threshold for imported multi-strength portfolios, effectively enhancing the protective shield for domestic applications.</li>
-                        <li><strong>4. Channel Flow Velocity ($C_{\text{flow}}$ — 20% Weight):</strong> Analyzes the distribution pipeline mechanics, balancing cash-flow timing, payment-cycle risks, and the strategic viability of navigating the Tanzanian public vs. private healthcare ecosystem.</li>
+                        <li><strong>1. Institutional Tender Volume (T — 30% Weight):</strong> Evaluates the total scale of demand moving through state procurement (MSD), rewarding products that offer sustainable baseline volume for a manufacturing footprint.</li>
+                        <li><strong>2. Private Retail Price Premium (MDelta — 30% Weight):</strong> Measures price resilience and margin stability within private commercial pharmacies, identifying opportunities for high-margin brand differentiation.</li>
+                        <li><strong>3. TMDA Regulatory Barrier (Rfees — 20% Weight):</strong> Dynamically calculates the up-front capital friction imposed on foreign entries. The calculation reflects how the TMDA framework creates a significantly higher financial entry threshold for imported multi-strength portfolios, effectively enhancing the protective shield for domestic applications.</li>
+                        <li><strong>4. Channel Flow Velocity (Cflow — 20% Weight):</strong> Analyzes the distribution pipeline mechanics, balancing cash-flow timing, payment-cycle risks, and the strategic viability of navigating the Tanzanian public vs. private healthcare ecosystem.</li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <div class="block-header" style="margin-bottom: 15px; background: var(--accent-gold); color: var(--dark-charcoal);">Strategic Next Steps & Advisory Consultations</div>
+                <p>This toolkit serves as an open-access pilot utility for foundational evaluation. For comprehensive, non-blinded datasets, localized manufacturing pre-feasibility modelling or strategy, or specific corporate development consultation, please connect with our principal advisory desk.</p>
+                <div class="cta-btn-container">
+                    <a href="mailto:HargunPharmaCompass@gmail.com?subject=Tanzania%20Pharma%20Entry%20Advisory%20Inquiry" class="cta-email-btn">
+                        ✉ Connect with Principal Advisory Desk
+                    </a>
                 </div>
             </div>
 
