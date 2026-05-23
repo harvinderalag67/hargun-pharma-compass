@@ -276,7 +276,7 @@
     };
 
     window.addEventListener('DOMContentLoaded', () => {
-        if (localStorage.getItem('hargun_compass_auth') === 'true') {
+        if (sessionStorage.getItem('hargun_compass_auth') === 'true') {
             revealInterface();
         }
     });
@@ -303,7 +303,7 @@
             });
             
             if (response.ok) {
-                localStorage.setItem('hargun_compass_auth', 'true');
+                sessionStorage.setItem('hargun_compass_auth', 'true');
                 revealInterface();
             } else {
                 alert("Authorization failed. Please ensure your parameters are entered correctly.");
@@ -311,7 +311,7 @@
                 submitButton.disabled = false;
             }
         } catch (error) {
-            localStorage.setItem('hargun_compass_auth', 'true');
+            sessionStorage.setItem('hargun_compass_auth', 'true');
             revealInterface();
         }
     }
